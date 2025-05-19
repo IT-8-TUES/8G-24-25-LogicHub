@@ -29,6 +29,7 @@ body {
     align-items: center;
     backdrop-filter: blur(10px);
     border-bottom: 2px solid rgba(255, 255, 255, .2);
+    z-index: 1000;
 }
 
 .header::before {
@@ -51,26 +52,164 @@ body {
     font-size: 1.6rem;
     text-decoration: none;
     font-weight: 600;
-    cursor: default;
+    cursor: pointer;
 }
 
 .navbar a {
-color: white;
-font-size: 1.1rem;
-text-decoration: none;
-margin-left: 35px;
-transition: .3s;
-
-
+    color: white;
+    font-size: 1.1rem;
+    text-decoration: none;
+    margin-left: 35px;
+    transition: .3s;
 }
 
 .navbar a:hover {
-color:#2cb0f2 ;
+    color:#2cb0f2;
+}
+
+.hero {
+    height: 65vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+     background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    position: relative;
+    max-width: 50rem;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: 0.3s ease;
+    cursor: pointer;
+    border: 2px solid white;
+}
+
+.primary-btn {
+    background: #2cb0f2;
+    color: white;
+}
+
+.primary-btn:hover {
+    background: #1a9ad8;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(44, 176, 242, 0.3);
+}
+
+.featured-content {
+    padding: 80px 200px;
+    margin-bottom: 200px;
+    position: relative;
+}
+
+.featured-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+}
+
+.featured-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: #2cb0f2;
+}
+
+.featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.featured-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.featured-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(44, 176, 242, 0.2);
+}
+
+.card-image {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.card-content {
+    padding: 25px;
+    color: white;
+}
+
+.card-content h3 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.card-content p {
+    margin-bottom: 20px;
+    opacity: 0.8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.read-more {
+    color: #2cb0f2;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.read-more:hover {
+    gap: 10px;
+}
+
+.read-more i {
+    font-size: 1.2rem;
 }
 
 footer {
     width: 100%;
-    position: fixed;
+    position: relative;
     bottom: 0;
     left: 0;
     display: grid;
@@ -149,6 +288,7 @@ h3{
     background-color: #2cb0f2;
     color: white;
     transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(44, 176, 242, 0.3);
 }
 
 .contact{
@@ -204,4 +344,78 @@ h3{
 
 .phone i{
     font-size: 1.5rem;
+}
+
+@media (max-width: 1200px) {
+    .featured-content {
+        padding: 60px 50px;
+    }
+    
+    footer {
+        padding: 40px 50px;
+    }
+}
+
+@media (max-width: 992px) {
+    .header {
+        padding: 15px 50px;
+    }
+    
+    .search-container {
+        width: 200px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    
+    .featured-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 30px;
+    }
+    
+    .navbar {
+        margin-top: 10px;
+    }
+    
+    .navbar a {
+        margin: 0 10px;
+        font-size: 0.9rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .featured-content {
+        padding: 50px 30px;
+    }
+    
+    .featured-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    footer {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 40px 30px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 250px;
+    }
 }
