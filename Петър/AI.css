@@ -1,0 +1,46 @@
+body {
+    font-family: sans-serif;
+    margin: 10;
+    padding: 10px;
+    text-align: justify;
+    font-size: 30px;
+    background: url(/5073414.jpg) no-repeat;
+    color: white;
+  }
+  
+  h1 {
+    text-align: center;
+     margin-top: 20px;
+  }
+  
+  .toggle-section {
+    margin-bottom: 15px;
+  }
+  
+  .toggle-btn {
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+    text-align: justify;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 40px;
+    margin: 10;
+    background-color: transparent;
+    color: white;
+  }
+  
+  .content {
+    display: none;
+    padding: 1px;
+    border: none;
+    border-top: none;
+    text-align: justify;
+  }
+  
+  .arrow {
+    font-size: 18px;
+  }

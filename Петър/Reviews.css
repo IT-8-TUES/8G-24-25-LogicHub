@@ -1,0 +1,19 @@
+body {
+    font-family: sans-serif;
+    margin: 10;
+    padding: 10px;
+    text-align: justify;
+    font-size: 30px;
+    background: url(/5073414.jpg) no-repeat;
+    color: white;
+  }
+  
+  h1 {
+    text-align: center;
+     margin-top: 20px;
+  }
+  
+  .toggle-section {
+    margin-bottom: 15px;
+  }
+  
