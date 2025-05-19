@@ -6,13 +6,28 @@
   <link rel="stylesheet" href="AI.css" />
 </head>
 <body>
+    <header class="header">
+        <a href="/Георги/homepage.html" class="logo">TechPortal</a>
+        
+    
+        
+        <nav class="navbar">
+            <a href="news.html">News</a>
+            <a href="Reviews.html">Reviews</a>
+            <a href="">Hardware</a>
+            <a href="">Guides</a>
+            <a href="AI.html">AI</a>
+        </nav>
+    </header>
     <main>
-        <h1>Изкуствен интелект</h1>
-
-        <section>
-            <p>Изкуственият интелект (на английски: Artificial Intelligence, съкратено AI) представлява дял от компютърните науки, който се занимава със създаването на системи, способни да изпълняват задачи, които обикновено изискват човешка интелигентност.Това включва способности като учене от опит, разпознаване на реч, анализиране на информация, вземане на решения, разбиране на език и дори творческо мислене. Целта на AI не е просто автоматизация, а създаване на адаптивни системи, които могат да се подобряват с времето.</p>
-        </section>
-
+        <div class ="start">
+            <div class ="ai">
+                <h1><b>Изкуствен интелект</b></h1>
+            </div>
+            <section>
+                <p>Изкуственият интелект (на английски: Artificial Intelligence, съкратено AI) представлява дял от компютърните науки, който се занимава със създаването на системи, способни да изпълняват задачи, които обикновено изискват човешка интелигентност.Това включва способности като учене от опит, разпознаване на реч, анализиране на информация, вземане на решения, разбиране на език и дори творческо мислене. Целта на AI не е просто автоматизация, а създаване на адаптивни системи, които могат да се подобряват с времето.</p>
+            </section>
+        </div>
         <div class="toggle-section">
             <button class="toggle-btn">Приложения в ежедневието <span class="arrow">▲</span></button>
             <div class="content">
@@ -57,7 +72,50 @@
             });
             });
         </script>
+        <script>
+document.querySelectorAll('.toggle-btn').forEach(button => {
+  button.addEventListener('click', () => {
+    const section = button.parentElement;
+    section.classList.toggle('expanded');
+  });
+});
+</script>
     </main>
-    
+    <footer>          
+        <div class="topics">         
+            <h3>Main Topics</h3>         
+            <ul>             
+                <li><a href="">News</a></li>             
+                <li><a href="">Reviews</a></li>             
+                <li><a href="">Hardware</a></li>             
+                <li><a href="">Guides</a></li>         
+            </ul>     
+        </div>      
+        
+        <div class="news">         
+            <h3>Newsletter</h3>         
+            <input type="text" placeholder="Your Email Address">         
+            <button>Subscribe</button>     
+        </div>      
+        
+        <div class="contact">         
+            <h3>General Information</h3>         
+            <div class="phone">         
+                <i class='bx bx-phone'></i>         
+                <p>+35936828498</p>     
+            </div> 
+            <ul>     
+                <li><a href="">Studentski Kompleks, <br>ul. „prof. Georgi Bradistilov" 11,<br> 1756 Sofia</a></li>     
+                <li><a href="">Sofia, Bulgaria</a></li> 
+            </ul> 
+            <div class="icons">     
+                <i class='bx bxl-instagram'></i>     
+                <i class='bx bxl-facebook'></i>     
+                <i class='bx bxl-twitter'></i>     
+                <i class='bx bxl-linkedin-square'></i> 
+            </div> 
+        </div> 
+    </footer>  
+    <script src="/Борис/index.js"></script>   
 </body>
 </html>
