@@ -1,13 +1,149 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="sixth.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Review</title>
+  <link rel="stylesheet" href="Reviews.css">
 </head>
 <body>
+    <header class="header">
+        <a href="/Георги/homepage.html" class="logo">TechPortal</a>
+        
     
-    <script src="/Борис/index.js"></script>
+        
+        <nav class="navbar">
+            <a href="news.html">News</a>
+            <a href="Reviews.html">Reviews</a>
+            <a href="">Hardware</a>
+            <a href="">Guides</a>
+            <a href="AI.html">AI</a>
+        </nav>
+    </header>
+    <main>
+        <div class="sa">
+            <h1>Оставете вашето мнение</h1>
+        </div>
+
+        <div class="stars" id="starContainer"></div>
+        <p>Средна оценка: <span id="average">0.0</span> от <span id="totalRatings">0</span> гласа</p>
+
+        <div class="comment-box">
+            <textarea id="commentInput" rows="4" cols="50"  placeholder="Напишете коментар..."></textarea><br>
+            <button onclick="submitComment()">Публикувай</button>
+        </div>
+        <div class="com">
+            <p>Коментари:</p>
+        </div>
+        <div id="commentSection"></div>
+        <script>
+        const starContainer = document.getElementById('starContainer');
+        const averageDisplay = document.getElementById('average');
+        const totalRatingsDisplay = document.getElementById('totalRatings');
+        const commentSection = document.getElementById('commentSection');
+        const commentInput = document.getElementById('commentInput');
+
+        let ratings = JSON.parse(localStorage.getItem('ratings')) || [];
+        let comments = JSON.parse(localStorage.getItem('comments')) || [];
+
+
+        window.onload = function () {
+            if (ratings.length > 0) {
+            updateAverage();
+            const lastRating = ratings[ratings.length - 1];
+            updateStars(lastRating);
+            }
+            displayComments();
+        };
+
+        for (let i = 1; i <= 5; i++) {
+            const star = document.createElement('span');
+            star.textContent = '★';
+            star.dataset.value = i;
+            star.addEventListener('click', () => rate(i));
+            starContainer.appendChild(star);
+        }
+
+        function rate(value) {
+            ratings.push(value);
+            localStorage.setItem('ratings', JSON.stringify(ratings));
+            updateStars(value);
+            updateAverage();
+        }
+
+        function updateStars(value) {
+            const stars = starContainer.querySelectorAll('span');
+            stars.forEach(star => {
+            star.classList.toggle('selected', star.dataset.value <= value);
+            });
+        }
+
+        function updateAverage() {
+            const sum = ratings.reduce((a, b) => a + b, 0);
+            const avg = (sum / ratings.length).toFixed(1);
+            averageDisplay.textContent = avg;
+            totalRatingsDisplay.textContent = ratings.length;
+        }
+
+        function submitComment() {
+            const text = commentInput.value.trim();
+            if (text) {
+            comments.push(text);
+            localStorage.setItem('comments', JSON.stringify(comments));
+            commentInput.value = '';
+            displayComments();
+            }
+        }
+
+        function displayComments() {
+            commentSection.innerHTML = '';
+
+            [...comments].reverse().forEach(comment => {
+            const div = document.createElement('div');
+            div.className = 'comment';
+            div.textContent = comment;
+            commentSection.appendChild(div);
+            });
+        }
+        </script>
+    </main>
+    <footer>          
+        <div class="topics">         
+            <h3>Main Topics</h3>         
+            <ul>             
+                <li><a href="">News</a></li>             
+                <li><a href="">Reviews</a></li>             
+                <li><a href="">Hardware</a></li>             
+                <li><a href="">Guides</a></li>         
+            </ul>     
+        </div>      
+        
+        <div class="news">         
+            <h3>Newsletter</h3>         
+            <input type="text" placeholder="Your Email Address">         
+            <button>Subscribe</button>     
+        </div>      
+        
+        <div class="contact">         
+            <h3>General Information</h3>         
+            <div class="phone">         
+                <i class='bx bx-phone'></i>         
+                <p>+35936828498</p>     
+            </div> 
+            <ul>     
+                <li><a href="">Studentski Kompleks, <br>ul. „prof. Georgi Bradistilov" 11,<br> 1756 Sofia</a></li>     
+                <li><a href="">Sofia, Bulgaria</a></li> 
+            </ul> 
+            <div class="icons">     
+                <i class='bx bxl-instagram'></i>     
+                <i class='bx bxl-facebook'></i>     
+                <i class='bx bxl-twitter'></i>     
+                <i class='bx bxl-linkedin-square'></i> 
+            </div> 
+        </div> 
+    </footer>  
+    <script src="/Борис/index.js"></script>   
+
+  
 </body>
 </html>
