@@ -1,70 +1,123 @@
-body {
+ body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
   font-family: Arial, sans-serif;
-  padding: 21px;
+  text-align:center ;
   background: url(/5073414.jpg) no-repeat;
-  text-align: center;
-  font-size: 30px;
   color: white;
+  background-size: cover;
+  background-position: center;
+  overflow-x: hidden;
+}
+.main-container {
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  background:transparent;
+  padding: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+}
+.sa {
+  margin-bottom: 30px;
 }
 
-.stars span {
-  font-size: 50px;
-  cursor: pointer;
-  color: lightgray;
+.review-form {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 1opx;
+  background: transparent;
+
 }
 
-.stars .selected {
-  color: gold;
-}
-
-.comment-box {
-  margin-top: 20px;
-}
-.com {
-  font-size: 30px;
-  margin-top: 30px;
-}
-.comment {
-  border-bottom: 1px solid #ccc;
-  padding: 10px 0;
-  word-wrap: break-word;
-  white-space: pre-wrap;
-  overflow-wrap:break-word ;
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  font-size: 14px;
+  background-color: transparent;
+  color: white;
 }
 
 textarea {
-  font-size: 30px;
-  width: 100%;
-  height: 150px;
-  padding: 15px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  resize: none;
-  background-color:transparent;
-  color: white;
+  resize: vertical;
+  min-height: 80px;
 }
 
 button {
-  font-size: 30px;
-  padding: 12px 24px;
-  margin-top: 10px;
-  cursor: pointer;
-  background-color: #007bff;
+  padding: 10px;
+  background-color: #2196f3;
   color: white;
   border: none;
   border-radius: 8px;
-  transition: background-color 0.3s;
+  cursor: pointer;
+  width: 500px;
+  margin-top: 10px;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #1976d2;
 }
-textarea::placeholder {
-  color: white;
+
+.stars {
+  font-size: 40px;
+  color: gold;
+  cursor: pointer;
 }
-.sa {
-  margin-top: 63px;
-  font-size: 30px;
+
+.reviews-list {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-top: 20px;
+}
+
+.reviews-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.review-box {
+  background-color: transparent;
+  padding: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  width: 220px;
+  height: 160px;
+  overflow-y: auto;
+  word-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-box p {
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.star-display {
+  font-size: 18px;
+  color: gold;
+}
+.review-box::-webkit-scrollbar,
+.reviews-list::-webkit-scrollbar {
+  width: 6px;
+}
+.review-box::-webkit-scrollbar-thumb,
+.reviews-list::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
 }
 *{
     margin: 0;
@@ -191,7 +244,9 @@ h3{
     border: none;
     outline: none;
     text-align: center;
+    background-color: white;
 }
+
 
 .news button{
     padding: 15px 50px;

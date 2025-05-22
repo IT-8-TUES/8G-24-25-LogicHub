@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Review</title>
+  <meta charset="UTF-8">
+  <title>Страница с ревюта</title>
   <link rel="stylesheet" href="Reviews.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
 </head>
 <body>
     <header class="header">
@@ -13,114 +13,127 @@
     
         
         <nav class="navbar">
-            <a href="news.html">News</a>
-            <a href="Reviews.html">Reviews</a>
+            <a href="/Георги/news.html">News</a>
+            <a href="/Петър/Reviews.html">Reviews</a>
             <a href="">Hardware</a>
             <a href="">Guides</a>
-            <a href="AI.html">AI</a>
+            <a href="/Петър/AI.html">AI</a>
         </nav>
     </header>
     <main>
-        <div class="sa">
-            <h1>Оставете вашето мнение</h1>
+
+        <div class="main-container">
+                <div class="sa">
+                    <h1>Остави твоето мнение</h1>
+                </div>
+            <div class="review-form">
+            <input type="text" id="name" placeholder="Вашето име">
+            <div id="stars" class="stars"></div>
+            <textarea id="comment" placeholder="Напишете коментар..."></textarea>
+            <button onclick="submitReview()">Публикувай</button>
+            </div>
+
+            <div class="reviews-list">
+            <div id="reviewsGrid" class="reviews-grid"></div>
+            </div>
         </div>
 
-        <div class="stars" id="starContainer"></div>
-        <p>Средна оценка: <span id="average">0.0</span> от <span id="totalRatings">0</span> гласа</p>
-
-        <div class="comment-box">
-            <textarea id="commentInput" rows="4" cols="50"  placeholder="Напишете коментар..."></textarea><br>
-            <button onclick="submitComment()">Публикувай</button>
-        </div>
-        <div class="com">
-            <p>Коментари:</p>
-        </div>
-        <div id="commentSection"></div>
         <script>
-        const starContainer = document.getElementById('starContainer');
-        const averageDisplay = document.getElementById('average');
-        const totalRatingsDisplay = document.getElementById('totalRatings');
-        const commentSection = document.getElementById('commentSection');
-        const commentInput = document.getElementById('commentInput');
+                let selectedRating = 0;
 
-        let ratings = JSON.parse(localStorage.getItem('ratings')) || [];
-        let comments = JSON.parse(localStorage.getItem('comments')) || [];
+                    function createStars() {
+                    const starsContainer = document.getElementById('stars');
+                    for (let i = 1; i <= 5; i++) {
+                        const star = document.createElement('span');
+                        star.className = 'star';
+                        star.innerHTML = '☆';
+                        star.dataset.value = i;
+                        star.onclick = () => setRating(i);
+                        starsContainer.appendChild(star);
+                    }
+                    }
 
+                    function setRating(value) {
+                    selectedRating = value;
+                    const stars = document.querySelectorAll('.star');
+                    stars.forEach((star, index) => {
+                        star.innerHTML = index < value ? '★' : '☆';
+                    });
+                    }
 
-        window.onload = function () {
-            if (ratings.length > 0) {
-            updateAverage();
-            const lastRating = ratings[ratings.length - 1];
-            updateStars(lastRating);
+                    function submitReview() {
+                    const name = document.getElementById('name').value.trim();
+                    const comment = document.getElementById('comment').value.trim();
+
+                    if (!name || !comment || selectedRating === 0) {
+                        alert("Моля, попълнете всички полета и изберете звезди.");
+                        return;
+                    }
+
+                    const review = {
+                        name,
+                        stars: selectedRating,
+                        comment
+                    };
+
+                    const reviews = JSON.parse(localStorage.getItem('reviews') || '[]');
+                    reviews.push(review);
+                    localStorage.setItem('reviews', JSON.stringify(reviews));
+
+                    addReviewToDOM(review);
+
+                    document.getElementById('name').value = '';
+                    document.getElementById('comment').value = '';
+                    setRating(0);
+                    }
+
+                    function addReviewToDOM({ name, stars, comment }) {
+                    const box = document.createElement('div');
+                    box.className = 'review-box';
+                    box.innerHTML = `
+                        <strong>${name}</strong>
+                        <div class="star-display">${'★'.repeat(stars)}${'☆'.repeat(5 - stars)}</div>
+                        <p>${comment}</p>
+                    `;
+                    document.getElementById('reviewsGrid').appendChild(box);
             }
-            displayComments();
-        };
 
-        for (let i = 1; i <= 5; i++) {
-            const star = document.createElement('span');
-            star.textContent = '★';
-            star.dataset.value = i;
-            star.addEventListener('click', () => rate(i));
-            starContainer.appendChild(star);
-        }
+                function loadReviews() {
+                const saved = localStorage.getItem('reviews');
+                let reviews = saved ? JSON.parse(saved) : [];
 
-        function rate(value) {
-            ratings.push(value);
-            localStorage.setItem('ratings', JSON.stringify(ratings));
-            updateStars(value);
-            updateAverage();
-        }
+                
+                if (!saved) {
+                    reviews = [
+                    { name: "Иван", stars: 5, comment: "Страхотен сайт!" },
+                    { name: "Мария", stars: 4, comment: "Много ми хареса!" },
+                    { name: "Георги", stars: 3, comment: "Има какво да се подобри." }
+                    ];
+                    localStorage.setItem('reviews', JSON.stringify(reviews));
+                }
 
-        function updateStars(value) {
-            const stars = starContainer.querySelectorAll('span');
-            stars.forEach(star => {
-            star.classList.toggle('selected', star.dataset.value <= value);
-            });
-        }
+                reviews.forEach(addReviewToDOM);
+                }
 
-        function updateAverage() {
-            const sum = ratings.reduce((a, b) => a + b, 0);
-            const avg = (sum / ratings.length).toFixed(1);
-            averageDisplay.textContent = avg;
-            totalRatingsDisplay.textContent = ratings.length;
-        }
-
-        function submitComment() {
-            const text = commentInput.value.trim();
-            if (text) {
-            comments.push(text);
-            localStorage.setItem('comments', JSON.stringify(comments));
-            commentInput.value = '';
-            displayComments();
-            }
-        }
-
-        function displayComments() {
-            commentSection.innerHTML = '';
-
-            [...comments].reverse().forEach(comment => {
-            const div = document.createElement('div');
-            div.className = 'comment';
-            div.textContent = comment;
-            commentSection.appendChild(div);
-            });
-        }
+                createStars();
+                loadReviews();
         </script>
     </main>
     <footer>          
         <div class="topics">         
             <h3>Main Topics</h3>         
             <ul>             
-                <li><a href="">News</a></li>             
-                <li><a href="">Reviews</a></li>             
+                <li><a href="/Георги/news.html">News</a></li>             
+                <li><a href="/Петър/Reviews.html">Reviews</a></li>             
                 <li><a href="">Hardware</a></li>             
-                <li><a href="">Guides</a></li>         
+                <li><a href="">Guides</a></li>
+                <li><a href="/Петър/AI.html">AI</a></li>         
             </ul>     
         </div>      
         
         <div class="news">         
             <h3>Newsletter</h3>         
-            <input type="text" placeholder="Your Email Address">         
+             <div id="f"><input type="text" placeholder="Your Email Address"></div>     
             <button>Subscribe</button>     
         </div>      
         
@@ -142,8 +155,8 @@
             </div> 
         </div> 
     </footer>  
-    <script src="/Борис/index.js"></script>   
-
-  
+    <script src="/Борис/index.js"></script>
+</body>
+</html>
 </body>
 </html>
