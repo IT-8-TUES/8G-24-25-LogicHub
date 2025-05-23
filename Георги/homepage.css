@@ -75,7 +75,15 @@ body {
     text-align: center;
     padding: 0 20px;
     position: relative;
+<<<<<<< HEAD
      background: rgba(0, 0, 0, 0.5);
+=======
+<<<<<<< HEAD
+    background: rgba(0, 0, 0, 0.5);
+=======
+     background: rgba(0, 0, 0, 0.5);
+>>>>>>> 386bf55259a48507616c7fff5e22b4533fdb03d6
+>>>>>>> a9272b91c5787499ef350d9dedc7c86b545070a3
 }
 
 .hero-content {
@@ -414,5 +422,18 @@ h3{
         gap: 15px;
     }
     
+<<<<<<< HEAD
     
 }
+=======
+<<<<<<< HEAD
+    .btn {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+=======
+    
+}
+>>>>>>> 386bf55259a48507616c7fff5e22b4533fdb03d6
+>>>>>>> a9272b91c5787499ef350d9dedc7c86b545070a3
