@@ -172,8 +172,15 @@ body {
     box-shadow: 0 10px 30px rgba(44, 176, 242, 0.2);
 }
 
-.card-image {
-    height: 200px;
+.card-image img {
+    max-width: 95%;
+    height: 300px;
+    width: 648px;
+    display: block; 
+    margin: auto;
+    margin-top: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
     background-size: cover;
     background-position: center;
 }
