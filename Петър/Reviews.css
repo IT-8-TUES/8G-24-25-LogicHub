@@ -1,4 +1,6 @@
- *{
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+*{
     scrollbar-width: thin;
     scrollbar-color: #2cb0f2 #222222;
  }
@@ -6,7 +8,7 @@
   margin: 0;
   padding: 0;
   height: 100%;
-  font-family: Arial, sans-serif;
+  font-family: Poppins, sans-serif;
   text-align:center ;
   background: url(/5073414.jpg) no-repeat;
   color: white;
@@ -41,7 +43,7 @@
 
 }
 
-input, textarea {
+#name, textarea {
   width: 100%;
   padding: 10px;
   border-radius: 8px;
@@ -56,19 +58,22 @@ textarea {
   min-height: 80px;
 }
 
-button {
-  padding: 10px;
-  background-color: #2196f3;
+.publish {
+  border: 2px solid white;
   color: white;
-  border: none;
-  border-radius: 8px;
+  padding: 12px 30px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: 0.3s ease;
   cursor: pointer;
-  width: 500px;
-  margin-top: 10px;
+  background-color: #2cb0f2;
 }
 
-button:hover {
+.publish:hover {
   background-color: #1976d2;
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(44, 176, 242, 0.3);
 }
 
 .stars {
@@ -185,6 +190,44 @@ button:hover {
     color:#2cb0f2;
 }
 
+.news{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    color: white;
+    font-size: 1.25rem;
+    align-items: center;
+}
+
+.news input{
+    border-radius: 10px;
+    width: 80%;
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    text-align: center;
+}
+
+.news button{
+    padding: 15px 50px;
+    border-radius: 10px;
+    border: 2px solid white;
+    outline: none;
+    background: transparent;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.news button:hover{
+    background-color: #2cb0f2;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(44, 176, 242, 0.3);
+}
 
 footer {
     width: 100%;
@@ -231,46 +274,7 @@ h3{
     color: #2cb0f2;
 }
 
-.news{
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5em;
-    color: white;
-    font-size: 1.25rem;
-    align-items: center;
-}
 
-.news input{
-    border-radius: 10px;
-    width: 80%;
-    padding: 10px 15px;
-    border: none;
-    outline: none;
-    text-align: center;
-    background-color: white;
-}
-
-
-.news button{
-    padding: 15px 50px;
-    border-radius: 10px;
-    border: 2px solid white;
-    outline: none;
-    background: transparent;
-    color: white;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: 0.3s ease;
-    cursor: pointer;
-}
-
-.news button:hover{
-    background-color: #2cb0f2;
-    color: white;
-    transform: scale(1.05);
-    box-shadow: 0 10px 20px rgba(44, 176, 242, 0.3);
-}
 
 .contact{
     display: flex;
