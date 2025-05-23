@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <title>AI</title>
-    <link rel="stylesheet" href="AII.css" />
+    <link rel="stylesheet" href="AI.css" />
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
 </head>
 <body>
@@ -14,10 +14,10 @@
         
         <nav class="navbar">
             <a href="/Георги/news.html">Gaming News</a>
-            <a href="/Петър/Reviewss.html" style="color: #2cb0f2;">Reviews</a>
+            <a href="/Петър/Reviews.html">Reviews</a>
             <a href="/Борис/hardware.html">Hardware News</a>
             <a href="/Борис/guides.html">Guides</a>
-            <a href="/Петър/AII.html">AI</a>
+            <a href="/Петър/AI.html" style="color: #2cb0f2;">AI</a>
         </nav>
     </header>
     <main>
@@ -25,12 +25,12 @@
 </head>
 <body>
  <main>
-  <h1 >Artificial Intellegence</h1>
+  <h1>Artificial Intellegence</h1>
 
   <div class="grid">
 
     <div class="card">
-      <img src="/Петър/polzi.jpg" alt="Приложения">
+      <img src="../polzi.jpg" alt="Приложения">
       <div class="card-header">
         <span>Applications in everyday life</span>
         <span class="arrow">▼</span>
@@ -41,7 +41,7 @@
     </div>
 
     <div class="card">
-      <img src="/Петър/prilozhenie.jpg" alt="Ползи">
+      <img src="../prilozhenie.jpg" alt="Ползи">
       <div class="card-header">
         <span>Importance and benefits</span>
         <span class="arrow">▼</span>
@@ -52,7 +52,7 @@
     </div>
 
     <div class="card">
-      <img src="/Петър/riskove.jpg" alt="Предизвикателства">
+      <img src="../riskove.jpg" alt="Предизвикателства">
       <div class="card-header">
         <span>Challenges and risks</span>
         <span class="arrow">▼</span>
@@ -63,7 +63,7 @@
     </div>
 
     <div class="card">
-      <img src="/Петър/bydeche.webp" alt="Бъдеще">
+      <img src="../bydeche.webp" alt="Бъдеще">
       <div class="card-header">
         <span>Futere of AI</span>
         <span class="arrow">▼</span>
@@ -79,15 +79,11 @@ Developments in the field of autonomous machines – self-driving cars, robots i
 
   <script>
     const headers = document.querySelectorAll('.card-header');
-
     headers.forEach(header => {
       header.addEventListener('click', () => {
         const card = header.parentElement;
-
         const isOpen = card.classList.contains('expanded');
-
         document.querySelectorAll('.card').forEach(c => c.classList.remove('expanded'));
-
         if (!isOpen) {
           card.classList.add('expanded');
         }
@@ -103,10 +99,10 @@ Developments in the field of autonomous machines – self-driving cars, robots i
             <h3>Main Topics</h3>         
             <ul>             
                 <li><a href="/Георги/news.html">Gaming News</a></li>             
-                <li><a href="/Петър/Reviewss.html">Reviews</a></li>             
+                <li><a href="/Петър/Reviews.html">Reviews</a></li>             
                 <li><a href="/Борис/hardware.html">Hardware News</a></li>             
                 <li><a href="/Борис/guides.html">Guides</a></li>
-                <li><a href="/Петър/AII.html">AI</a></li>         
+                <li><a href="/Петър/AI.html">AI</a></li>         
             </ul>     
         </div>      
         
