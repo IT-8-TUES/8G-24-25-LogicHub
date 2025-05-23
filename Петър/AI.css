@@ -1,3 +1,7 @@
+*{
+    scrollbar-width: thin;
+    scrollbar-color: #2cb0f2 #222222;
+}
 body {
     font-family: sans-serif;
     text-align: justify;
@@ -251,7 +255,7 @@ h3{
     cursor: pointer;
 }
 
-.contact ul:hover{
+.contact ul a:hover{
     color: #2cb0f2;
 }
 

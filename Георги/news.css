@@ -8,22 +8,8 @@
     box-sizing: border-box;
     text-decoration: none;
     list-style: none;
-}
-body {
-    min-height: 100vh;
-    background: url(/5073414.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
-    text-decoration: none;
-    list-style: none;
+    scrollbar-width: thin;
+    scrollbar-color: #2cb0f2 #222222;
 }
 body {
     min-height: 100vh;
@@ -291,7 +277,7 @@ h3{
     cursor: pointer;
 }
 
-.contact ul:hover{
+.contact ul a:hover{
     color: #2cb0f2;
 }
 

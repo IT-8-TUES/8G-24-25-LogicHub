@@ -69,64 +69,16 @@ body {
     color:#2cb0f2;
 }
 
-.hero {
-    height: 65vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 20px;
-    position: relative;
-    background: rgba(0, 0, 0, 0.5);
-    background: rgba(0, 0, 0, 0.5);
-    background: rgba(0, 0, 0, 0.5);
-    background: rgba(0, 0, 0, 0.5);
-
-}
-
-.hero-content {
-    position: relative;
-    max-width: 50rem;
-    color: white;
-}
-
-.hero-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 40px;
-    opacity: 0.9;
-}
-
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.btn {
-    padding: 12px 30px;
-    border-radius: 10px;
-    font-weight: 600;
-    font-size: 1rem;
-    transition: 0.3s ease;
-    cursor: pointer;
-    border: 2px solid white;
-}
-
-.primary-btn {
-    background: #2cb0f2;
-    color: white;
-}
-
-.primary-btn:hover {
-    background: #1a9ad8;
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(44, 176, 242, 0.3);
+.card-image img {
+    max-width: 95%;
+    height: auto;
+    display: block; 
+    margin: auto;
+    margin-top: 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background-size: cover;
+    background-position: center;
 }
 
 .featured-content {
@@ -138,7 +90,8 @@ body {
 .featured-content h2 {
     color: white;
     font-size: 2.5rem;
-    margin-bottom: 40px;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
     text-align: center;
     position: relative;
 }
@@ -171,13 +124,6 @@ body {
     transform: translateY(-10px);
     box-shadow: 0 10px 30px rgba(44, 176, 242, 0.2);
 }
-
-.card-image {
-    height: 200px;
-    background-size: cover;
-    background-position: center;
-}
-
 
 .card-content {
     padding: 25px;
@@ -352,6 +298,16 @@ h3{
     font-size: 1.5rem;
 }
 
+@media (max-width: 1200px) {
+    .featured-content {
+        padding: 60px 50px;
+    }
+    
+    footer {
+        padding: 40px 50px;
+    }
+}
+
 @media (max-width: 992px) {
     .header {
         padding: 15px 50px;
@@ -409,9 +365,6 @@ h3{
         align-items: center;
         gap: 15px;
     }
-       
+    
+    
 }
-    .btn {
-        width: 100%;
-        max-width: 250px;
-    }

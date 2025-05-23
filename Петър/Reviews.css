@@ -1,3 +1,7 @@
+ *{
+    scrollbar-width: thin;
+    scrollbar-color: #2cb0f2 #222222;
+ }
  body {
   margin: 0;
   padding: 0;
@@ -284,7 +288,7 @@ h3{
     cursor: pointer;
 }
 
-.contact ul:hover{
+.contact ul a:hover{
     color: #2cb0f2;
 }
 
