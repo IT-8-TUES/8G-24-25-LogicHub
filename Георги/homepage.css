@@ -76,6 +76,7 @@ body {
     padding: 0 20px;
     position: relative;
 <<<<<<< HEAD
+<<<<<<< HEAD
      background: rgba(0, 0, 0, 0.5);
 =======
 <<<<<<< HEAD
@@ -84,6 +85,9 @@ body {
      background: rgba(0, 0, 0, 0.5);
 >>>>>>> 386bf55259a48507616c7fff5e22b4533fdb03d6
 >>>>>>> a9272b91c5787499ef350d9dedc7c86b545070a3
+=======
+    background: rgba(0, 0, 0, 0.5);
+>>>>>>> a72ab0d42d3181533ea27fa7cd9e6733a5d5ed3c
 }
 
 .hero-content {
@@ -354,16 +358,10 @@ h3{
     font-size: 1.5rem;
 }
 
-@media (max-width: 1200px) {
-    .featured-content {
-        padding: 60px 50px;
-    }
-    
-    footer {
-        padding: 40px 50px;
-    }
+
 }
 
+<<<<<<< HEAD
 @media (max-width: 992px) {
     .header {
         padding: 15px 50px;
@@ -437,3 +435,5 @@ h3{
 }
 >>>>>>> 386bf55259a48507616c7fff5e22b4533fdb03d6
 >>>>>>> a9272b91c5787499ef350d9dedc7c86b545070a3
+=======
+>>>>>>> a72ab0d42d3181533ea27fa7cd9e6733a5d5ed3c
